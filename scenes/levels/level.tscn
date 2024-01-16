@@ -1,14 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://ydodft0t1os2"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_chfh3"]
+[ext_resource type="PackedScene" uid="uid://c2cuac00jwt8k" path="res://scenes/objects/gate.tscn" id="3_0kmqj"]
 [ext_resource type="PackedScene" uid="uid://fjepca51yo1m" path="res://scenes/player/player.tscn" id="4_ckvi6"]
-[ext_resource type="PackedScene" uid="uid://pbt0ox5tmmyv" path="res://scenes/objects/bed.tscn" id="5_06dn1"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_chfh3")
 
-[node name="Player" parent="." instance=ExtResource("4_ckvi6")]
-position = Vector2(311, 214)
+[node name="Gate" parent="." instance=ExtResource("3_0kmqj")]
+position = Vector2(865, -550)
 
-[node name="Bed" parent="." instance=ExtResource("5_06dn1")]
-position = Vector2(1176, 144)
+[node name="Player" parent="." instance=ExtResource("4_ckvi6")]
+position = Vector2(905, 755)
+
+[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
+[connection signal="granade" from="Player" to="." method="_on_player_granade"]
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]
