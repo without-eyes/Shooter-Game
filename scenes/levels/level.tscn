@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ydodft0t1os2"]
+[gd_scene load_steps=17 format=3 uid="uid://ydodft0t1os2"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_chfh3"]
 [ext_resource type="Texture2D" uid="uid://c51gd4trh4aej" path="res://graphics/ground/stones.png" id="2_gi62b"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://3j6j8bsyucqa" path="res://graphics/tilesets/outside_walls.png" id="7_fths8"]
 [ext_resource type="Texture2D" uid="uid://beb8mnmmgfyv8" path="res://graphics/decals/moss/moss_5.png" id="8_3yaf5"]
 [ext_resource type="Texture2D" uid="uid://de84ty3oo7vyt" path="res://graphics/tilesets/soil.png" id="8_rnlgc"]
+[ext_resource type="PackedScene" uid="uid://4hbxmlnhp5hc" path="res://scenes/objects/light_fan_animation.tscn" id="10_p55dm"]
 [ext_resource type="PackedScene" uid="uid://c1yk72dtilnhb" path="res://scenes/levels/house.tscn" id="11_1ue77"]
 [ext_resource type="PackedScene" uid="uid://cwp4rsd00vf3h" path="res://scenes/objects/steam_vent.tscn" id="12_p27cw"]
 
@@ -85,8 +86,14 @@ layer_1/name = "walls"
 layer_1/tile_data = PackedInt32Array(131069, 0, 2, 196605, 0, 2, 262141, 0, 2, 327677, 65536, 2, 327678, 65536, 0, 327679, 65536, 0, 262144, 65536, 0, 65533, 65536, 1, 65534, 65536, 0, 6, 65536, 0, 7, 131072, 1, 65543, 0, 2, 131079, 0, 2, 196615, 0, 2, 262151, 0, 2, 327687, 131072, 2, 327686, 65536, 0, 327685, 65536, 0, 327684, 65536, 0, 327683, 65536, 2, 196611, 131072, 1, 196610, 65536, 0, 196609, 65536, 1, 262145, 131072, 2, 262147, 0, 2)
 
 [node name="House" parent="Ground" instance=ExtResource("11_1ue77")]
-position = Vector2(-3983, 220)
+position = Vector2(-3935, 235)
 rotation = -0.538637
+
+[node name="LightFanAnimation" parent="Ground" instance=ExtResource("10_p55dm")]
+position = Vector2(-4323, 701)
+scale = Vector2(0.5, 0.5)
+autoplay = "default"
+frame_progress = 0.649462
 
 [node name="Gate" parent="." instance=ExtResource("3_0kmqj")]
 position = Vector2(865, -550)
@@ -99,9 +106,16 @@ zoom = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
 
 [node name="Projectiles" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="SteamVent" parent="." instance=ExtResource("12_p27cw")]
 position = Vector2(426, 1094)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(-1, 0)
+energy = 0.25
+blend_mode = 1
+metadata/_edit_lock_ = true
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="granade" from="Player" to="." method="_on_player_granade"]

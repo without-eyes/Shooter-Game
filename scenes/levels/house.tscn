@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1yk72dtilnhb"]
+[gd_scene load_steps=9 format=3 uid="uid://c1yk72dtilnhb"]
 
 [ext_resource type="Texture2D" uid="uid://bgfmu54ywhq6n" path="res://graphics/tilesets/interior.png" id="1_ugxhk"]
 [ext_resource type="PackedScene" uid="uid://dp1vu67jbl0su" path="res://scenes/objects/simple_light.tscn" id="2_u7h2o"]
+[ext_resource type="PackedScene" uid="uid://bnw1426imc2nw" path="res://scenes/objects/wall_light.tscn" id="3_7mgpf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vshe"]
 size = Vector2(2093, 2069.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_psu5h"]
+polygon = PackedVector2Array(-195, -21, 195, -21, 195, 22, -195, 22.6786)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2bh2k"]
+polygon = PackedVector2Array(-72, -195, 72, -195, 68, 195, -72, 195)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dphxl"]
 resource_name = "interior"
@@ -49,6 +56,7 @@ texture_region_size = Vector2i(390, 390)
 3:1/0/physics_layer_0/angular_velocity = 0.0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-72, 195, 70, 195, 67, -195, -73, -195)
 5:1/0 = 0
+5:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_2bh2k")
 5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:1/0/physics_layer_0/angular_velocity = 0.0
 5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-72, 195, 70, 195, 67, -195, -73, -195)
@@ -113,6 +121,7 @@ texture_region_size = Vector2i(390, 390)
 1:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:5/0/physics_layer_0/angular_velocity = 0.0
 0:6/0 = 0
+0:6/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_psu5h")
 0:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:6/0/physics_layer_0/angular_velocity = 0.0
 0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-195, -20.6312, -195, 20.9462, 195, 20.3162, 195, -20.3162)
@@ -162,6 +171,7 @@ texture_region_size = Vector2i(390, 390)
 
 [sub_resource type="TileSet" id="TileSet_42h17"]
 tile_size = Vector2i(390, 390)
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 11
 sources/0 = SubResource("TileSetAtlasSource_dphxl")
@@ -185,3 +195,9 @@ layer_2/tile_data = PackedInt32Array(-3, 262144, 7, -2, 0, 6, -1, 196608, 6, -13
 
 [node name="SimpleLight" parent="." instance=ExtResource("2_u7h2o")]
 position = Vector2(93, -180)
+metadata/_edit_lock_ = true
+
+[node name="WallLight" parent="." instance=ExtResource("3_7mgpf")]
+position = Vector2(884, 369)
+rotation = 1.5708
+metadata/_edit_lock_ = true
