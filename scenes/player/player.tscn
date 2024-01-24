@@ -70,5 +70,5 @@ occluder = SubResource("OccluderPolygon2D_5q02d")
 
 [connection signal="granade" from="." to="." method="_on_granade"]
 [connection signal="timeout" from="LaserReloadTimer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="GranadeReloadTimer" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="GranadeReloadTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="GranadeReloadTimer" to="." method="_on_timer_2_timeout"]
