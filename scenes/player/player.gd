@@ -6,9 +6,12 @@ signal granade(pos, direction)
 var can_laser: bool = true
 var can_granade: bool = true
 
+@export var max_speed: int = 500
+var speed: int = max_speed
+
 func _process(_delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
-	velocity = direction * 500
+	velocity = direction * speed
 	move_and_slide()
 	
 	look_at(get_global_mouse_position())
