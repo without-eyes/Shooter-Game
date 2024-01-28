@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://05guqxe7kp04"]
+[gd_scene load_steps=20 format=3 uid="uid://05guqxe7kp04"]
 
 [ext_resource type="PackedScene" uid="uid://ydodft0t1os2" path="res://scenes/levels/level.tscn" id="1_v0j48"]
 [ext_resource type="Texture2D" uid="uid://c51gd4trh4aej" path="res://graphics/ground/stones.png" id="2_rejcf"]
@@ -12,9 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://c1yk72dtilnhb" path="res://scenes/levels/house.tscn" id="9_cflq5"]
 [ext_resource type="PackedScene" uid="uid://4hbxmlnhp5hc" path="res://scenes/objects/light_fan_animation.tscn" id="10_6eurv"]
 [ext_resource type="PackedScene" uid="uid://c2cuac00jwt8k" path="res://scenes/objects/gate.tscn" id="11_wkldt"]
-[ext_resource type="PackedScene" uid="uid://blji7kvpg7vkc" path="res://scenes/container/toilet.tscn" id="13_8k3ar"]
+[ext_resource type="PackedScene" uid="uid://by41eir20ints" path="res://scenes/container/toilet.tscn" id="13_8k3ar"]
+[ext_resource type="PackedScene" uid="uid://cwp4rsd00vf3h" path="res://scenes/objects/steam_vent.tscn" id="13_44fy8"]
 [ext_resource type="Script" path="res://ItemContainer.gd" id="14_2o1w3"]
-[ext_resource type="PackedScene" uid="uid://bpurpvsqqksmg" path="res://scenes/container/crate.tscn" id="14_vb1da"]
+[ext_resource type="PackedScene" uid="uid://ru4r50kqk18v" path="res://scenes/container/crate.tscn" id="14_vb1da"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t1e1e"]
 resource_name = "walls"
@@ -97,6 +98,15 @@ frame_progress = 0.649462
 
 [node name="Gate" parent="." index="1" instance=ExtResource("11_wkldt")]
 position = Vector2(737, -485)
+
+[node name="SteamVent" parent="." index="4" instance=ExtResource("13_44fy8")]
+position = Vector2(426, 1094)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="5"]
+position = Vector2(-1, 0)
+energy = 0.25
+blend_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="Toilet" parent="." index="6" instance=ExtResource("13_8k3ar")]
 position = Vector2(1456, 628)
